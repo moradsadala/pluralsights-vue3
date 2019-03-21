@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pluralsights</title>
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <!-- v-show -->
+        <!-- <p v-show='name.trim().length != 0'>hi {{name}}</p> -->
+        <!-- looping on objects -->
+        <!-- <p v-for='(v,k,i) in currentUser' >{{i}} . {{k}} : {{v}}</p> -->
+        <!-- looping on array of objects -->
+        <!-- <ul>
+            <li v-for='(page,i) in pages'>
+                <a :href='page.url'>{{page.number}}</a>
+                <small>i:{{i}}</small>
+            </li>
+        </ul> -->
+        <input type='text' v-model='newMemberName'>
+        <input type='number' v-model='newMemberAge'>
+        
+        <button @click='addMember'>Add</button>
+        <button @click='popMember'>Delete</button>
+        <p v-if='deletedItem.name.length>0'>you just deleted {{deletedItem.name}} from list</p>
+        <p v-for='(v,k) in users'>
+            {{k}} : {{v.name}} - {{v.age}} 
+            <button @click='insert(k+1)'>+</button>
+            <button @click='updateItem(k)'>Update</button>
+        </p>
+        <button @click='sortArray'>Sort</button>
+        <button @click='reverseArray'>Reverse</button>
+    </div>
+    <script src='vue.js'></script>
+    <script src='script.js'></script>
+</body>
+</html>
